@@ -10,4 +10,26 @@
     <ProjectReference Include="..\Handbook.Domain\Handbook.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
+    <PackageReference Include="MediatR" Version="13.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\Client\Commands\Delete\" />
+    <Folder Include="Handlers\Client\Commands\Patch\" />
+    <Folder Include="Handlers\Client\Queries\GetAll\" />
+    <Folder Include="Handlers\Client\Queries\GetById\" />
+    <Folder Include="Handlers\Resource\Commands\Delete\" />
+    <Folder Include="Handlers\Resource\Commands\Patch\" />
+    <Folder Include="Handlers\Resource\Queries\GetAll\" />
+    <Folder Include="Handlers\Resource\Queries\GetById\" />
+    <Folder Include="Handlers\UnitOfMeasurement\Commands\Delete\" />
+    <Folder Include="Handlers\UnitOfMeasurement\Commands\Patch\" />
+    <Folder Include="Handlers\UnitOfMeasurement\Queries\GetAll\" />
+    <Folder Include="Handlers\UnitOfMeasurement\Queries\GetById\" />
+  </ItemGroup>
+
 </Project>

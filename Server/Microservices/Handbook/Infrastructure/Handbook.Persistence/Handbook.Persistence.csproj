@@ -15,4 +15,8 @@
     <ProjectReference Include="..\..\Core\Handbook.Application\Handbook.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="EntityTypeConfigurations\" />
+  </ItemGroup>
+
 </Project>

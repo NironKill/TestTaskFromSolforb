@@ -1,3 +1,7 @@
+using Handbook.Application;
+using Handbook.Infrastructure;
+using Handbook.Persistence;
+using Handbook.Persistence.Common;
 using Serilog;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -11,6 +15,11 @@ builder.Services.AddSerilog(config =>
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
+builder.Services
+    .AddApplication()
+    .AddInfrastructure()
+    .AddPersistence(builder.Configuration);
+
 WebApplication app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -23,5 +32,12 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+using (IServiceScope scope = app.Services.CreateScope())
+{
+    ApplicationDbContext context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+    await Preparation.Initialize(context);
+}
 
 app.Run();

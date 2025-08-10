@@ -7,7 +7,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
+    <PackageReference Include="MediatR" Version="13.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Warehouse.Domain\Warehouse.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\AdmissionDocument\Commands\Delete\" />
+    <Folder Include="Handlers\AdmissionDocument\Commands\Patch\" />
+    <Folder Include="Handlers\AdmissionDocument\Queries\GetAll\" />
+    <Folder Include="Handlers\AdmissionDocument\Queries\GetById\" />
+    <Folder Include="Handlers\AdmissionResource\Commands\Delete\" />
+    <Folder Include="Handlers\AdmissionResource\Commands\Patch\" />
+    <Folder Include="Handlers\AdmissionResource\Queries\GetAll\" />
+    <Folder Include="Handlers\AdmissionResource\Queries\GetById\" />
+    <Folder Include="Handlers\Balance\Commands\Delete\" />
+    <Folder Include="Handlers\Balance\Commands\Patch\" />
+    <Folder Include="Handlers\Balance\Queries\GetAll\" />
+    <Folder Include="Handlers\Balance\Queries\GetById\" />
+    <Folder Include="Handlers\ShippingDocument\Commands\Delete\" />
+    <Folder Include="Handlers\ShippingDocument\Commands\Patch\" />
+    <Folder Include="Handlers\ShippingDocument\Queries\GetAll\" />
+    <Folder Include="Handlers\ShippingDocument\Queries\GetById\" />
+    <Folder Include="Handlers\ShippingResource\Commands\Delete\" />
+    <Folder Include="Handlers\ShippingResource\Commands\Patch\" />
+    <Folder Include="Handlers\ShippingResource\Queries\GetAll\" />
+    <Folder Include="Handlers\ShippingResource\Queries\GetById\" />
   </ItemGroup>
 
 </Project>

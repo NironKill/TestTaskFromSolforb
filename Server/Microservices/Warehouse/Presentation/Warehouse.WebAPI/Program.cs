@@ -1,4 +1,8 @@
 using Serilog;
+using Warehouse.Application;
+using Warehouse.Infrastructure;
+using Warehouse.Persistence;
+using Warehouse.Persistence.Common;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +14,11 @@ builder.Services.AddSerilog(config =>
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+
+builder.Services
+    .AddApplication()
+    .AddInfrastructure()
+    .AddPersistence(builder.Configuration);
 
 WebApplication app = builder.Build();
 
@@ -23,5 +32,12 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+using (IServiceScope scope = app.Services.CreateScope())
+{
+    ApplicationDbContext context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+    await Preparation.Initialize(context);
+}
 
 app.Run();
